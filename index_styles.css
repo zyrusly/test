@@ -1,0 +1,76 @@
+:root {
+    --background: white;
+    --primary: #f7f7f7;
+    --text: black;
+    --border-color:rgb(197, 197, 197);
+    --box-shadow: rgba(97, 97, 97, 0.747) ;
+    --hover-box-shadow: rgba(206, 206, 206, 0.733);
+    --close-button-color:rgba(185, 185, 185, 0.822);
+    --shine:rgba(255, 255, 255, 0.342);
+}
+
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+body {
+    background: var(--background);
+    margin: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-container {
+    background: var(--primary);
+    min-width: 200px;
+    width: min-content;
+    box-shadow: inset 0px -1px 84px -44px rgb(189, 189, 189),0px -1px 100px -44px var(--box-shadow);
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+    border:1px solid var(--border-color);
+    transition: all .3s;
+    overflow: hidden;
+    
+}
+
+.user-container:before {
+    content: "";
+    position: absolute;
+    height: 150%;
+    width: 80px;
+    transform: rotate(30deg);
+    background-color: var(--shine);
+    left: -150px;
+    top:-30px;
+} 
+
+.user-container:hover {
+    filter: drop-shadow(0px 16px 16px var(--hover-box-shadow));
+    transform: scale(1.1) rotate(10deg);
+    background-color: var(--primary);
+    box-shadow: none;
+    z-index: 9999;
+}
+
+.user-container:hover:before {
+    transition: left 600ms ease;
+    left: 300px;
+  }
+
+.user-name, .user-email, .user-age{
+    line-height: 2rem;
+}
+
+.btn-close {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    font-size: 32px;
+    font-family: 'Courier New', Courier, monospace;
+    color:var(--close-button-color);
+    text-decoration: none;
+    cursor: pointer;
+}
