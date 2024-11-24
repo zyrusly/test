@@ -8,23 +8,24 @@ const ShowTemplate = () => {
     
         user_elements.forEach((element) => {
             const clone = cloned_template.cloneNode(true);
+            const clone2 = cloned_template.cloneNode(true);
             element.appendChild(clone);
+            element.appendChild(clone2);
         })
         CloseButton();
     })
 }
 
 const CloseButton = () => {
-    const close_button = document.querySelector('.btn-close');
+    document.querySelectorAll('.btn-close').forEach((btn) => {       
+        btn.innerHTML = "&times;";
+        btn.classList.add("btn-close");
 
-    close_button.innerHTML = "&times;";
-
-    close_button.classList.add("btn-close");
-
-    close_button.addEventListener('click', function() {
-        const user_container = document.querySelector('.user-container');
-        user_container.style.display = 'none';
+        btn.addEventListener('click', () => {
+            btn.parentElement.style.display = 'none';
+        });
     });
-}
+};
+
 
 ShowTemplate();
